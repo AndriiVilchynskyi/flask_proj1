@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block title %}
+Orders page
+{% endblock %}
+
+{% block content %}
+<h2></h2>
+<table class="table table-hover table-dark">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Car number</th>
+        <th>Client passport number</th>
+        <th>Add date</th>
+        <th>Rental time</th>
+        <th>Car rental cost</th>
+        <th>Total cost</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for order in orders %}
+    <tr>
+        <td>{{ order.id }}</td>
+        <td>{{ order.car_number }}</td>
+        <td>{{ order.client_passport_number }}</td>
+        <td>{{ order.add_date }}</td>
+        <td>{{ order.rental_time }}</td>
+        <td>{{ order.car_rental_cost }}</td>
+        <td>{{ order.total_cost }}</td>
+        <td>
+            <button class="btn btn-outline btn-warning">Edit</button>
+            <button class="btn btn-outline btn-danger" onclick="return confirm('Please confirm delete order')">Delete</button>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
